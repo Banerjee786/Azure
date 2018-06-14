@@ -1,7 +1,7 @@
 # from flask import Flask
 from flask import Flask, request, render_template
 import os
-import pypyodbc
+#import pypyodbc
 
 app = Flask(__name__)
 
