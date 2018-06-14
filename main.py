@@ -1,5 +1,8 @@
 # from flask import Flask
 from flask import Flask, request, render_template
+import os
+import pypyodbc
+
 app = Flask(__name__)
 
 @app.route('/')
@@ -12,8 +15,6 @@ def my_form_post():
     processed_text = text.upper()
     return processed_text
 
-def hello_world():
-  return 'Hello, World!\n This looks just amazing within 5 minutes'
 
 if __name__ == '__main__':
   app.run()
