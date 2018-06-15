@@ -1,6 +1,6 @@
 # from flask import Flask
 from flask import Flask, request, render_template
-#import pyodbc
+import pypyodbc as pyodbc
 import time
 
 
@@ -10,22 +10,24 @@ server = 'banerjee.database.windows.net'
 database = 'banerjeedb'
 username = 'Priyam360'
 password = 'Priyam555!'
-driver = '{ODBC Driver 13 for SQL Server}'
+driver = '{SQL Server}'
+#driver = '{ODBC Driver 13 for SQL Server}'
 
 
 @app.route('/')
 def display():
-    return 'Hello Priyam'
-    '''
-    conn = pyodbc.connect('DRIVER=' + driver + ';SERVER=' + server + ';PORT=1443;DATABASE=' + database + ';UID=' + username + ';PWD=' + password)
+    conn = pyodbc.connect('Driver=' + driver + ';Server=' + server + ';Database=' + database + ';UID=' + username + ';PWD=' + password +';')
     cursor = conn.cursor()
+    SqlQuery = "SELECT top 10 * FROM [equake] where nst = 24"
     start = time.time()
-    cursor.execute("SELECT top 10 * FROM [equake] where nst = 24")
+    cursor.execute(SqlQuery)
     rows = cursor.fetchall()
     end = time.time()
     executiontime = end - start
+    cursor.close()
+    conn.close()
     return render_template('searchearth.html', rows=rows, executiontime=executiontime)
-    '''
+
 
 if __name__ == '__main__':
     app.run(debug=True)
