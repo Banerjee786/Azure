@@ -16,6 +16,7 @@ driver = '{ODBC Driver 13 for SQL Server}'
 
 @app.route('/')
 def display():
+    '''
     conn = pyodbc.connect('Driver=' + driver + ';Server=' + server + ';Database=' + database + ';UID=' + username + ';PWD=' + password +';')
     cursor = conn.cursor()
     SqlQuery = "SELECT top 10 * FROM equake where nst = 24"
@@ -26,6 +27,9 @@ def display():
     executiontime = end - start
     cursor.close()
     conn.close()
+    '''
+    rows = 5
+    executiontime = 0.5
     return render_template('searchearth.html', rows=rows, executiontime=executiontime)
 
 
