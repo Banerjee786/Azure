@@ -13,7 +13,7 @@ password = 'Priyam555!'
 driver = '{ODBC Driver 13 for SQL Server}'
 
 @app.route('/')
-def disdata():
+def display():
     conn = pypyodbc.connect('DRIVER=' + driver + ';SERVER=' + server + ';PORT=1443;DATABASE=' + database + ';UID=' + username + ';PWD=' + password)
     cursor = conn.cursor()
     start = time.time()
