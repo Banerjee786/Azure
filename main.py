@@ -22,14 +22,14 @@ def display():
     SqlQuery = "SELECT top 10 * FROM equake where nst = 24"
     start = time.time()
     cursor.execute(SqlQuery)
-    '''
     rows = cursor.fetchall()
+    '''
     end = time.time()
     executiontime = end - start
     cursor.close()
     conn.close()
     '''
-    rows = 5
+    #rows = 5
     executiontime = 0.5
     return render_template('searchearth.html', rows=rows, executiontime=executiontime)
 
