@@ -19,10 +19,10 @@ def display():
 
     conn = pyodbc.connect('Driver=' + driver + ';Server=' + server + ';Database=' + database + ';UID=' + username + ';PWD=' + password +';')
     cursor = conn.cursor()
-    SqlQuery = "SELECT * FROM EQUAKE WHERE latitude = 19.4088326 AND depth = 2.14"
+    SqlQuery = "SELECT mag FROM EQUAKE WHERE latitude = 19.4088326 AND depth = 2.14"
     start = time.time()
-    cursor.execute(SqlQuery)
-    rows = cursor.fetchall()
+
+    rows = cursor.execute(SqlQuery).fetchall()
     row = []
     row.append(rows)
     '''
