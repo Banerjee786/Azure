@@ -25,6 +25,5 @@ def display():
     return render_template('searchearth.html', rows=rows, executiontime=executiontime)
 
 if __name__ == '__main__':
-    app.debug = True
-    app.run()
+    app.run(debug=True)
 
