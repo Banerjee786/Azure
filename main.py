@@ -21,8 +21,7 @@ def display():
     rows = cursor.fetchall()
     end = time.time()
     executiontime = end - start
-    return rows
-    #return render_template('searchearth.html', rows=rows, executiontime=executiontime)
+    return render_template('searchearth.html', rows=rows, executiontime=executiontime)
 
 if __name__ == '__main__':
   app.run()
