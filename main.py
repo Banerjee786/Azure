@@ -10,8 +10,8 @@ server = 'banerjee.database.windows.net'
 database = 'banerjeedb'
 username = 'Priyam360'
 password = 'Priyam555!'
-driver = '{SQL Server}'
-#driver = '{ODBC Driver 13 for SQL Server}'
+#driver = '{SQL Server}'
+driver = '{ODBC Driver 13 for SQL Server}'
 
 
 @app.route('/')
