@@ -15,6 +15,8 @@ driver = '{ODBC Driver 13 for SQL Server}'
 
 @app.route('/')
 def display():
+    return 'Hello Priyam'
+    '''
     conn = pyodbc.connect('DRIVER=' + driver + ';SERVER=' + server + ';PORT=1443;DATABASE=' + database + ';UID=' + username + ';PWD=' + password)
     cursor = conn.cursor()
     start = time.time()
@@ -23,6 +25,7 @@ def display():
     end = time.time()
     executiontime = end - start
     return render_template('searchearth.html', rows=rows, executiontime=executiontime)
+    '''
 
 if __name__ == '__main__':
     app.run(debug=True)
