@@ -18,7 +18,7 @@ driver = '{SQL Server}'
 def display():
     conn = pyodbc.connect('Driver=' + driver + ';Server=' + server + ';Database=' + database + ';UID=' + username + ';PWD=' + password +';')
     cursor = conn.cursor()
-    SqlQuery = "SELECT top 10 * FROM [equake] where nst = 24"
+    SqlQuery = "SELECT top 10 * FROM equake where nst = 24"
     start = time.time()
     cursor.execute(SqlQuery)
     rows = cursor.fetchall()
