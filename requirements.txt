@@ -1,4 +1,4 @@
 --find-links wheelhouse
-Flask
+Flask==0.12.2
 
 
