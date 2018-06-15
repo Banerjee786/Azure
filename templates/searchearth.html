@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+</head>
+<body>
+<header>
+<h2> Priyam Banerjee 1001529497 </h2>
+</header>
+<p>Execution Time is {{executiontime}}</p>
+<p>
+{% block content %}
+{% for row in rows %}
+ 
+  <!-- This retrives all the data based on the content typed in textbox of index.html -->
+  <p>The mag is <b>({{row["mag"]}})</b> the time is <b> ({{row["time"]}}) </b>.
+
+{% endfor %}
+{% endblock %}
+</p>
+</body>
+</html>
