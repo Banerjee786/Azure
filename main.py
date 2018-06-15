@@ -18,7 +18,7 @@ def display():
     conn = pyodbc.connect('DRIVER=' + driver + ';SERVER=' + server + ';PORT=1443;DATABASE=' + database + ';UID=' + username + ';PWD=' + password)
     cursor = conn.cursor()
     start = time.time()
-    cursor.execute("SELECT top 10 * FROM equake where nst = 24")
+    cursor.execute("SELECT top 10 * FROM [equake] where nst = 24")
     rows = cursor.fetchall()
     end = time.time()
     executiontime = end - start
