@@ -19,7 +19,7 @@ def display():
 
     conn = pyodbc.connect('Driver=' + driver + ';Server=' + server + ';Database=' + database + ';UID=' + username + ';PWD=' + password +';')
     cursor = conn.cursor()
-    SqlQuery = "SELECT mag FROM EQUAKE WHERE latitude = 19.4088326 AND depth = 2.14"
+    SqlQuery = "SELECT mag FROM banerjeedb.dbo.EQUAKE WHERE latitude = 19.4088326 AND depth = 2.14"
     start = time.time()
 
     rows = cursor.execute(SqlQuery).fetchall()
