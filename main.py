@@ -2,6 +2,7 @@
 from flask import Flask, request, render_template
 import pyodbc
 import time
+import matplotlib
 
 
 app = Flask(__name__)
@@ -22,11 +23,13 @@ def display():
     start = time.time()
     cursor.execute(SqlQuery)
     rows = cursor.fetchall()
+    print(rows[0])
     end = time.time()
     executiontime = end - start
     cursor.close()
     conn.close()
-    return render_template('searchearth.html', rows=rows, executiontime=executiontime)
+    return rows[0]
+    #return render_template('searchearth.html', rows=rows, executiontime=executiontime)
 
 
 if __name__ == '__main__':
