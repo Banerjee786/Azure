@@ -6,9 +6,9 @@ import time
 
 app = Flask(__name__)
 
-server = 'banerjee.database.windows.net'
+server = 'tcp:banerjee.database.windows.net'
 database = 'banerjeedb'
-username = 'null@banerjee.database.windows.net'
+username = 'Priyam360@banerjee'
 password = 'Priyam555!'
 #driver = '{SQL Server}'
 driver = '{ODBC Driver 13 for SQL Server}'
@@ -16,7 +16,7 @@ driver = '{ODBC Driver 13 for SQL Server}'
 
 @app.route('/',methods=['GET','POST'])
 def display():
-    conn = pyodbc.connect('Driver=' + driver + ';Server=' + server + ';Database=' + database + ';UID=' + username + ';PWD=' + password +';')
+    conn = pyodbc.connect('Driver=' + driver + ';Server=' + server + ';Port=1433;Database=' + database + ';UID=' + username + ';PWD=' + password +';')
     cursor = conn.cursor()
     SqlQuery = "SELECT * FROM [EQUAKE] WHERE latitude = 19.4088326 AND depth = 2.14"
     start = time.time()
