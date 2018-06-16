@@ -14,7 +14,7 @@ password = 'Priyam555!'
 driver = '{ODBC Driver 13 for SQL Server}'
 
 
-@app.route('/',methods=['POST'])
+@app.route('/',methods=['GET','POST'])
 def display():
     conn = pyodbc.connect('Driver=' + driver + ';Server=' + server + ';Database=' + database + ';UID=' + username + ';PWD=' + password +';')
     cursor = conn.cursor()
