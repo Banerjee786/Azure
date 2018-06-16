@@ -14,26 +14,20 @@ password = 'Priyam555!'
 driver = '{ODBC Driver 13 for SQL Server}'
 
 
-@app.route('/')
+@app.route('/',methods=['POST'])
 def display():
-
     conn = pyodbc.connect('Driver=' + driver + ';Server=' + server + ';Database=' + database + ';UID=' + username + ';PWD=' + password +';')
     cursor = conn.cursor()
-    SqlQuery = "SELECT mag FROM banerjeedb.dbo.EQUAKE WHERE latitude = 19.4088326 AND depth = 2.14"
+    SqlQuery = "SELECT * FROM [EQUAKE] WHERE latitude = 19.4088326 AND depth = 2.14"
     start = time.time()
-
-    rows = cursor.execute(SqlQuery).fetchall()
-    row = []
-    row.append(rows)
-    '''
+    cursor.execute(SqlQuery)
+    rows = cursor.fetchall()
+    print(rows)
     end = time.time()
     executiontime = end - start
     cursor.close()
     conn.close()
-    '''
-    #rows = 5
-    executiontime = 0.5
-    return render_template('searchearth.html', row=row, executiontime=executiontime)
+    return render_template('searchearth.html', row=rows, executiontime=executiontime)
 
 
 if __name__ == '__main__':
