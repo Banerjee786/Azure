@@ -10,7 +10,7 @@ app = Flask(__name__)
 server = 'tcp:banerjee.database.windows.net'
 database = 'banerjeedb'
 username = 'Priyam360@banerjee'
-password = 'Priyam555!'
+password = '**********'
 #driver = '{SQL Server}'
 driver = '{ODBC Driver 13 for SQL Server}'
 
