@@ -7,5 +7,14 @@
 <h2> Priyam Banerjee 1001529497 </h2>
 </header>
 <p>Execution Time is {{executiontime}}</p>
+{% block content %}
+{% for c in rows %}
+ 
+  <!-- This retrives all the data based on the content typed in textbox of index.html -->
+  <p>The mag is <b>({{c["mag"]}})</b> the time is <b> ({{c["time"]}}) </b>.
+
+{% endfor %}
+{% endblock %}
+</p>
 </body>
 </html>

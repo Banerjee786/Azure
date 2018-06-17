@@ -1,15 +1,17 @@
 # from flask import Flask
-from flask import Flask, request, render_template
+from flask import Flask, request, render_template, redirect
 import pyodbc
 import time
-import matplotlib
+import datetime
+import os
+
 
 
 app = Flask(__name__)
 
-server = 'tcp:banerjee.database.windows.net'
+server = 'banerjee.database.windows.net'
 database = 'banerjeedb'
-username = 'Priyam360@banerjee'
+username = 'Priyam360'
 password = 'Priyam555!'
 #driver = '{SQL Server}'
 driver = '{ODBC Driver 13 for SQL Server}'
@@ -19,15 +21,13 @@ driver = '{ODBC Driver 13 for SQL Server}'
 def display():
     conn = pyodbc.connect('Driver=' + driver + ';Server=' + server + ';Port=1433;Database=' + database + ';UID=' + username + ';PWD=' + password +';')
     cursor = conn.cursor()
-    SqlQuery = "SELECT * FROM [EQUAKE] WHERE depth = 2.14"
     start = time.time()
+    SqlQuery = "SELECT TOP 10 * FROM [EQUAKE]"
     cursor.execute(SqlQuery)
-    #rows = cursor.fetchall()
+    rows = cursor.fetchall()
     end = time.time()
     executiontime = end - start
-    cursor.close()
-    conn.close()
-    return render_template('searchearth.html', executiontime=executiontime)
+    return render_template('searchearth.html', rows=rows, executiontime=executiontime)
 
 
 if __name__ == '__main__':
