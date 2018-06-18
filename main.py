@@ -2,7 +2,7 @@
 from flask import Flask, request, render_template
 import pypyodbc
 import time
-import matplotlib
+
 
 
 app = Flask(__name__)
