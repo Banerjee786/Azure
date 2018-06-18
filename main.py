@@ -1,6 +1,6 @@
 # from flask import Flask
 from flask import Flask, request, render_template
-import pyodbc
+import pypyodbc
 import time
 
 
@@ -17,7 +17,7 @@ driver = '{ODBC Driver 13 for SQL Server}'
 
 @app.route('/')
 def display():
-    conn = pyodbc.connect('Driver=' + driver + ';Server=' + server + ';Port=1433;Database=' + database + ';UID=' + username + ';PWD=' + password +';')
+    conn = pypyodbc.connect('Driver=' + driver + ';Server=' + server + ';Port=1433;Database=' + database + ';UID=' + username + ';PWD=' + password +';')
     cursor = conn.cursor()
     SqlQuery = "SELECT TOP 10 * FROM [EQUAKE]"
     start = time.time()
